@@ -58,7 +58,7 @@ module.exports = function(input, init, tag) {
       var status = (xhr.status === 1223) ? 204 : xhr.status
       if (status < 100 || status > 599) {
         remove(xhr)
-        reject(new TypeError('Network request failed'))
+        reject(new TypeError('网络连接已断开，请检查网络'))
         return
       }
 
@@ -75,7 +75,7 @@ module.exports = function(input, init, tag) {
 
     xhr.onerror = function() {
       remove(xhr)
-      reject(new TypeError('Network request failed'))
+      reject(new TypeError('网络连接已断开，请检查网络'))
     }
 
     xhr.open(request.method, request.url, true)
